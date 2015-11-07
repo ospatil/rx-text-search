@@ -1,0 +1,40 @@
+{
+  "name": "rx-textsearch",
+  "version": "0.0.0",
+  "description": "Text search in files using RxJS ",
+  "homepage": "https://github.com/ospatil/rx-textsearch",
+  "author": {
+    "name": "Omkar Patil",
+    "email": "ospatil@gmail.com",
+    "url": "https://github.com/ospatil"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    "text",
+    "search",
+    "rxjs",
+    "nodejs"
+  ],
+  "repository": "https://github.com/ospatil/rx-textsearch.git",
+  "devDependencies": {
+    "babel-core": "^5.5.0",
+    "del": "^2.0.2",
+    "gulp": "^3.6.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "isparta": "^3.0.3"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT"
+}
