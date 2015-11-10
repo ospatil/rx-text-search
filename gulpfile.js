@@ -15,8 +15,12 @@ var isparta = require('isparta');
 // when they're loaded
 require('babel-core/register');
 
+var paths = {
+  es6: ['lib/**/*.js']
+};
+
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(paths.es6)
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -24,10 +28,10 @@ gulp.task('static', function () {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src('lib/**/*.js')
+  return gulp.src(paths.es6)
     .pipe(istanbul({
-      includeUntested: true
-,      instrumenter: isparta.Instrumenter
+      includeUntested: true,
+      instrumenter: isparta.Instrumenter
     }))
     .pipe(istanbul.hookRequire());
 });
@@ -39,6 +43,7 @@ gulp.task('test', ['pre-test'], function (cb) {
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
     .on('error', function (err) {
+      console.log(err);
       mochaErr = err;
     })
     .pipe(istanbul.writeReports())
@@ -57,7 +62,7 @@ gulp.task('coveralls', ['test'], function () {
 });
 
 gulp.task('babel', ['clean'], function () {
-  return gulp.src('lib/**/*.js')
+  return gulp.src(paths.es6)
     .pipe(babel())
     .pipe(gulp.dest('dist'));
 });
@@ -68,3 +73,7 @@ gulp.task('clean', function () {
 
 gulp.task('prepublish', ['babel']);
 gulp.task('default', ['static', 'test', 'coveralls']);
+
+gulp.task('watch', function () {
+  gulp.watch(paths.es6, ['babel']);
+});
