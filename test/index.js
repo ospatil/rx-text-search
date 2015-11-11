@@ -1,5 +1,5 @@
 import {
-  find
+  find, findAsPromise
 }
 from '../lib';
 import chai from 'chai';
@@ -13,7 +13,7 @@ chai.use(chaiAsPromised);
 
 const expect = chai.expect;
 
-describe('rx-textsearch', function() {
+describe('rx-textsearch', function () {
 
   it('should return an throw observer when called without arguments', function (done) {
     find().subscribe(
@@ -181,4 +181,12 @@ describe('rx-textsearch', function() {
       });
   });
 
+  it('should return a promise that is rejected due to invalid input', function () {
+    return expect(findAsPromise()).to.be.eventually.rejected;
+  });
+
+  it('should return a promise that is resolved with results array', function () {
+    //the results array same as test case 2
+    return expect(findAsPromise('ignorant', undefined, {cwd: resolve('test/doc')})).to.be.eventually.have.length(4);
+  });
 });
