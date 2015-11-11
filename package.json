@@ -1,8 +1,8 @@
 {
-  "name": "rx-textsearch",
+  "name": "text-search",
   "version": "0.0.0",
   "description": "Text search in files using RxJS ",
-  "homepage": "https://github.com/ospatil/rx-textsearch",
+  "homepage": "https://github.com/ospatil/text-search",
   "author": {
     "name": "Omkar Patil",
     "email": "ospatil@gmail.com",
@@ -15,9 +15,14 @@
   "keywords": [
     "text search",
     "rxjs",
-    "nodejs"
+    "nodejs",
+    "es6",
+    "es2015",
+    "reactive",
+    "frp",
+    "promise"
   ],
-  "repository": "https://github.com/ospatil/rx-textsearch.git",
+  "repository": "https://github.com/ospatil/text-search.git",
   "devDependencies": {
     "babel-core": "^5.5.0",
     "chai": "3.4.0",

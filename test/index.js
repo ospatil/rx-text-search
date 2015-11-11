@@ -4,16 +4,12 @@ import {
 from '../lib';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import {
-  resolve
-}
-from 'path';
 
 chai.use(chaiAsPromised);
 
 const expect = chai.expect;
 
-describe('rx-textsearch', function () {
+describe('text-search', function () {
 
   it('should return an throw observer when called without arguments', function (done) {
     find().subscribe(
@@ -50,7 +46,7 @@ describe('rx-textsearch', function () {
     }];
 
     find('ignorant', undefined, {
-      cwd: resolve('test/doc')
+      cwd: 'test/doc'
     })
     .toArray()
     .subscribe(results => {
@@ -70,7 +66,7 @@ describe('rx-textsearch', function () {
     }];
 
     find('ignorant', '**/*.log', {
-      cwd: resolve('test/doc')
+      cwd: 'test/doc'
     })
     .toArray()
     .subscribe(results => {
@@ -95,7 +91,7 @@ describe('rx-textsearch', function () {
     }];
 
     find('shameless', ['**/*some*'], {
-      cwd: resolve('test/doc')
+      cwd: 'test/doc'
     })
     .toArray()
     .subscribe(results => {
@@ -123,7 +119,7 @@ describe('rx-textsearch', function () {
     }];
 
     find(['shameless', 'ignorant'], ['**/*some*'], {
-      cwd: resolve('test/doc')
+      cwd: 'test/doc'
     })
     .toArray()
     .subscribe(results => {
@@ -143,7 +139,7 @@ describe('rx-textsearch', function () {
     }];
 
     find(['elinor.$'], null, {
-      cwd: resolve('test/doc')
+      cwd: 'test/doc'
     })
     .toArray()
     .subscribe(results => {
@@ -181,12 +177,27 @@ describe('rx-textsearch', function () {
       });
   });
 
+  // The following two tests need a file named non-readable in test/doc directory without read permission
+  /*it('should return an throw observer in case of any error', function (done) {
+    find('qwerty', 'non-readable', {cwd: 'test/doc'}).subscribe(
+      () => {}, //onNext
+      error => {
+        expect(error.message).to.have.string('EACCES: permission denied');
+        done();
+      }
+    );
+  });
+
+  it('should return a promise that is rejected due any error', function () {
+    return expect(findAsPromise('qwerty', 'non-readable', {cwd: 'test/doc'})).to.be.eventually.rejected;
+  });*/
+
   it('should return a promise that is rejected due to invalid input', function () {
     return expect(findAsPromise()).to.be.eventually.rejected;
   });
 
   it('should return a promise that is resolved with results array', function () {
     //the results array same as test case 2
-    return expect(findAsPromise('ignorant', undefined, {cwd: resolve('test/doc')})).to.be.eventually.have.length(4);
+    return expect(findAsPromise('ignorant', undefined, {cwd: 'test/doc'})).to.be.eventually.have.length(4);
   });
 });
