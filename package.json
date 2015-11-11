@@ -1,7 +1,7 @@
 {
   "name": "text-search",
   "version": "0.0.0",
-  "description": "Text search in files using RxJS ",
+  "description": "Node module for recursive directory search for text in files and obtain results as either RxJS observable or promise",
   "homepage": "https://github.com/ospatil/text-search",
   "author": {
     "name": "Omkar Patil",
