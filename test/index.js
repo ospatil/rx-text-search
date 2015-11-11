@@ -9,7 +9,7 @@ chai.use(chaiAsPromised);
 
 const expect = chai.expect;
 
-describe('text-search', function () {
+describe('rx-text-search', function () {
 
   it('should return an throw observer when called without arguments', function (done) {
     find().subscribe(

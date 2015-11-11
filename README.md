@@ -1,20 +1,20 @@
-# text-search
+# rx-text-search
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coveralls-image]][coveralls-url]
 > Node module for recursive directory search for text in files and obtain results as either RxJS observable or promise
 
 ## Features
-[text-search](https://github.com/ospatil/text-search) carries out regex searches for text in files and returns matched results.
+[rx-text-search](https://github.com/ospatil/rx-text-search) carries out regex searches for text in files and returns matched results.
 - Accepts regex search patterns for text search in files.
 - Searches files under user provided directory(s) or process directory (process.cwd()).
 - Returns results either as a RxJS observable or promise;
 
 ## Getting Started
-Install with [NPM](https://www.npmjs.com) - `npm install --save text-search`
+Install with [NPM](https://www.npmjs.com) - `npm install --save rx-text-search`
 
 ## Usage
 ### Getting RxJS observable back
 ```js
-var TextSearch = require('text-search');
+var TextSearch = require('rx-text-search');
 
 // Find .txt files containing "sometext" in test/doc and all its sub-directories
 TextSearch.find('sometext', '**/*.txt', {cwd: 'test/doc'})
@@ -29,7 +29,7 @@ TextSearch.find('sometext', '**/*.txt', {cwd: 'test/doc'})
 ```
 ### Getting promise back
 ```js
-var TextSearch = require('text-search');
+var TextSearch = require('rx-text-search');
 
 // Find .txt files containing "sometext" in test/doc and all its sub-directories
 TextSearch.findAsPromise('sometext', '**/*.txt', {cwd: 'test/doc'})
@@ -75,11 +75,11 @@ Copyright © 2015 [Omkar Patil](https://github.com/ospatil)
 
 Licensed under the MIT license.
 
-[npm-image]: https://badge.fury.io/js/text-search.svg
-[npm-url]: https://npmjs.com/package/text-search
-[travis-image]: https://travis-ci.org/ospatil/text-search.svg?branch=master
-[travis-url]: https://travis-ci.org/ospatil/text-search
-[daviddm-image]: https://david-dm.org/ospatil/text-search.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/ospatil/text-search
-[coveralls-image]: https://img.shields.io/coveralls/ospatil/text-search.svg
-[coveralls-url]: https://coveralls.io/github/ospatil/text-search?branch=master
+[npm-image]: https://badge.fury.io/js/rx-text-search.svg
+[npm-url]: https://npmjs.com/package/rx-text-search
+[travis-image]: https://travis-ci.org/ospatil/rx-text-search.svg?branch=master
+[travis-url]: https://travis-ci.org/ospatil/rx-text-search
+[daviddm-image]: https://david-dm.org/ospatil/rx-text-search.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/ospatil/rx-text-search
+[coveralls-image]: https://img.shields.io/coveralls/ospatil/rx-text-search.svg
+[coveralls-url]: https://coveralls.io/github/ospatil/rx-text-search?branch=master
