@@ -1,12 +1,12 @@
 # rx-text-search
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coveralls-image]][coveralls-url]
-> Node module for recursive directory search for text in files and obtain results as either RxJS observable or promise
+> Node module for recursive directory search for text in files and getting results as either RxJS observable or promise
 
 ## Features
 [rx-text-search](https://github.com/ospatil/rx-text-search) carries out regex searches for text in files and returns matched results.
 - Accepts regex search patterns for text search in files.
 - Searches files under user provided directory(s) or process directory (process.cwd()).
-- Returns results either as a RxJS observable or promise;
+- Returns results either as a RxJS observable or promise.
 
 ## Getting Started
 Install with [NPM](https://www.npmjs.com) - `npm install --save rx-text-search`
